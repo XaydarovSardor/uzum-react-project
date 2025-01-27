@@ -1,8 +1,8 @@
 import API_URL from "./api"
 
-export const gerAllProduct = ()=>{
+export const getAllProduct = ()=>{
     fetch(`${API_URL}`/products)
 }
 export const getCategories = () =>{
-    fetch(`${API_URL}`/categories)
+    fetch(`${API_URL}/products/categories`)
 }
