@@ -1,8 +1,29 @@
-import API_URL from "./api"
+import axios from "axios";
+import API_URL from "./api";
 
-export const getAllProduct = ()=>{
-    fetch(`${API_URL}`/products)
+export const getAllProducts = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/products`)
+        return await response.data
+    } catch (error) {
+        console.log(error);
+    }
 }
-export const getCategories = () =>{
-    fetch(`${API_URL}/products/categories`)
+export const getAllCategories = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/products/categories`)
+        return await response.data
+    } catch (error) {
+        console.log(error);
+    }
 }
+
+export const getCategory = async (category) => {
+    try {
+        const response = await axios.get(`${API_URL}/products/category/${category}`)
+        return await response.data
+    } catch (error) {
+        console.log(error);
+    }
+}
+
