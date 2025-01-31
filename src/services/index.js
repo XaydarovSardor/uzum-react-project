@@ -27,3 +27,11 @@ export const getCategory = async (category) => {
     }
 }
 
+export const getProduct = async (product) => {
+    try {
+        const response = await axios.get(`${API_URL}/products/${product}`)
+        return await response.data
+    } catch (error) {
+        console.log(error);
+    }
+}

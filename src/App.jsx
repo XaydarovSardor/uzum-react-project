@@ -1,24 +1,20 @@
 import Header from './layout/header';
 import Footer from './layout/footer';
 import Home from './pages/home';
-import { Link, Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Category } from './components/category';
-import { Electronics } from "./categories/electronics.jsx"
-import { Jewelery } from './categories/jewelery.jsx';
-import { Mens } from './categories/mens.jsx';
-import { Womens } from './categories/womens.jsx';
+import { Categories } from './components/categories';
+import { Product } from './components/product';
 function App() {
   return (
     <div className="wrapper">
       <Header />
-      <Category />
+      <Categories/>
       <Routes>
-        <Route path='/categories/electronics' element={<Electronics />}/>
-        <Route path='/categories/jewelery' element={<Jewelery />}/>
-        <Route path="men's clothing" element={<Mens/>}/>
-        <Route path="women's clothing" element={<Womens/>}/>
+        <Route path='categories/:category' element={<Category/>}/>
+        <Route path='/products/:id' element={<Product/>}/>
+        <Route path='/' element={<Home />}/>
       </Routes>
-      <Home />
       <Footer />
     </div>
   )

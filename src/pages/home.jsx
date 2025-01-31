@@ -2,7 +2,7 @@ import "./home.css"
 import { getAllProducts } from "../services"
 import { useEffect } from "react"
 import { useState } from "react"
-import { Electronics } from "../categories/electronics"
+import { Link } from "react-router-dom"
 function Home() {
     const [products, setProducts] = useState([])
     useEffect(() => {
@@ -32,7 +32,7 @@ function Home() {
                     </div>
                     <div className="tovar-cards">
                         {products?.length ? products.map(item => (
-                            <div className="tovar" key={item.id}>
+                            <Link to={`/products/${item.id}`} className="tovar" key={item.id}>
                                 <div className="tovar-img">
                                     <img src={item.image} alt="tovar" />
                                 </div>
@@ -49,7 +49,7 @@ function Home() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         )) : "Loading..."}
                     </div>
                 </div>
